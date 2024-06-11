@@ -1,69 +1,104 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #ff6f61, #f0f8ff, #ffcccb, #d4a5a5, #ffe5b4);
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
 }
 
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-x: hidden;
 }
 
-.container {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
+header {
+    background-color: #4CAF50;
     padding: 20px;
+    text-align: center;
+    border-bottom: 5px solid #333;
+    animation: slideDown 1s ease-in-out;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #fff;
+}
+
+main {
+    padding: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.intro h2 {
+    font-size: 2em;
+    color: #4CAF50;
+}
+
+.intro p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.gallery {
+    margin-bottom: 40px;
+}
+
+.gallery h2 {
+    font-size: 2em;
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border: 3px solid #4CAF50;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    animation: fadeIn 2s ease-in;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-top: 5px solid #4CAF50;
+    animation: slideUp 1s ease-in-out;
+}
+
+@keyframes slideDown {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-h1 {
-    color: #ff6f61;
-    animation: colorChange 5s ease-in-out infinite;
-}
-
-@keyframes colorChange {
-    0% { color: #ff6f61; }
-    25% { color: #ffcccb; }
-    50% { color: #d4a5a5; }
-    75% { color: #ffe5b4; }
-    100% { color: #ff6f61; }
-}
-
-.friend-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 10px;
-    margin: 20px 0;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-.message {
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-.signature {
-    font-style: italic;
-    margin-top: 20px;
+@keyframes fadeInUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
